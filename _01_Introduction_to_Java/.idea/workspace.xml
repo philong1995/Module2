@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87db1c32-584c-4a9e-892d-0380eaf7117f" name="Default Changelist" comment="" />
+    <list default="true" id="87db1c32-584c-4a9e-892d-0380eaf7117f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/exercise/currency_converter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +17,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1hFBNwbLGZTSj8T8VqKKc5pxS92" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -25,13 +32,13 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
   </component>
-  <component name="RunManager" selected="Application.display_the_greeting">
-    <configuration name="days_per_month" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="practice.days_per_month" />
+  <component name="RunManager" selected="Application.currency_converter">
+    <configuration name="currency_converter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="exercise.currency_converter" />
       <module name="_01_Introduction_to_Java" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="practice.*" />
+          <option name="PATTERN" value="exercise.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -93,11 +100,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.currency_converter" />
         <item itemvalue="Application.display_the_greeting" />
         <item itemvalue="Application.declare_variable" />
         <item itemvalue="Application.interPretation" />
         <item itemvalue="Application.equation" />
-        <item itemvalue="Application.days_per_month" />
       </list>
     </recent_temporary>
   </component>
@@ -115,6 +122,7 @@
       <workItem from="1599597109856" duration="163000" />
       <workItem from="1599597369091" duration="82000" />
       <workItem from="1599597487469" duration="60000" />
+      <workItem from="1599612659482" duration="1298000" />
     </task>
     <servers />
   </component>
@@ -122,25 +130,25 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1358" height="193" key="GridCell.Tab.0.bottom" timestamp="1599597547192">
+    <state width="1358" height="193" key="GridCell.Tab.0.bottom" timestamp="1599614123903">
       <screen x="0" y="23" width="1440" height="805" />
     </state>
-    <state width="1358" height="193" key="GridCell.Tab.0.bottom/0.23.1440.805@0.23.1440.805" timestamp="1599597547192" />
-    <state width="1358" height="193" key="GridCell.Tab.0.center" timestamp="1599597547192">
+    <state width="1358" height="193" key="GridCell.Tab.0.bottom/0.23.1440.805@0.23.1440.805" timestamp="1599614123903" />
+    <state width="1358" height="193" key="GridCell.Tab.0.center" timestamp="1599614123902">
       <screen x="0" y="23" width="1440" height="805" />
     </state>
-    <state width="1358" height="193" key="GridCell.Tab.0.center/0.23.1440.805@0.23.1440.805" timestamp="1599597547192" />
-    <state width="1358" height="193" key="GridCell.Tab.0.left" timestamp="1599597547191">
+    <state width="1358" height="193" key="GridCell.Tab.0.center/0.23.1440.805@0.23.1440.805" timestamp="1599614123902" />
+    <state width="1358" height="193" key="GridCell.Tab.0.left" timestamp="1599614123902">
       <screen x="0" y="23" width="1440" height="805" />
     </state>
-    <state width="1358" height="193" key="GridCell.Tab.0.left/0.23.1440.805@0.23.1440.805" timestamp="1599597547191" />
-    <state width="1358" height="193" key="GridCell.Tab.0.right" timestamp="1599597547192">
+    <state width="1358" height="193" key="GridCell.Tab.0.left/0.23.1440.805@0.23.1440.805" timestamp="1599614123902" />
+    <state width="1358" height="193" key="GridCell.Tab.0.right" timestamp="1599614123902">
       <screen x="0" y="23" width="1440" height="805" />
     </state>
-    <state width="1358" height="193" key="GridCell.Tab.0.right/0.23.1440.805@0.23.1440.805" timestamp="1599597547192" />
-    <state x="417" y="278" key="com.intellij.ide.util.TipDialog" timestamp="1599597487917">
+    <state width="1358" height="193" key="GridCell.Tab.0.right/0.23.1440.805@0.23.1440.805" timestamp="1599614123902" />
+    <state x="417" y="278" key="com.intellij.ide.util.TipDialog" timestamp="1599612660191">
       <screen x="0" y="23" width="1440" height="805" />
     </state>
-    <state x="417" y="278" key="com.intellij.ide.util.TipDialog/0.23.1440.805@0.23.1440.805" timestamp="1599597487917" />
+    <state x="417" y="278" key="com.intellij.ide.util.TipDialog/0.23.1440.805@0.23.1440.805" timestamp="1599612660191" />
   </component>
 </project>
