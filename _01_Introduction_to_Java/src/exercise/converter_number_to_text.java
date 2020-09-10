@@ -95,95 +95,95 @@ public class converter_number_to_text {
         else {
             switch (tr) {
                 case 1 :
-                    System.out.println("one hundred");
+                    System.out.print("one hundred ");
                     break;
                 case 2 :
-                    System.out.println("two hundred");
+                    System.out.print("two hundred ");
                     break;
                 case 3 :
-                    System.out.println("three hundred");
+                    System.out.print("three hundred ");
                     break;
                 case 4 :
-                    System.out.println("four hundred");
+                    System.out.print("four hundred ");
                     break;
                 case 5 :
-                    System.out.println("five hundred");
+                    System.out.print("five hundred ");
                     break;
                 case 6 :
-                    System.out.println("six hundred");
+                    System.out.print("six hundred ");
                     break;
                 case 7 :
-                    System.out.println("seven hundred");
+                    System.out.print("seven hundred ");
                     break;
                 case 8 :
-                    System.out.println("eight hundred");
+                    System.out.print("eight hundred ");
                     break;
                 case 9 :
-                    System.out.println("nine hundred");
+                    System.out.print("nine hundred ");
                     break;
             }
             switch (ch) {
                 case 0 :
-                    System.out.println("and");
+                    System.out.print("and ");
                     break;
                 case 1 :
-                    System.out.println("ten");
+                    System.out.print("ten ");
                     break;
                 case 2 :
-                    System.out.println("twenty");
+                    System.out.print("twenty ");
                     break;
                 case 3 :
-                    System.out.println("thirty");
+                    System.out.print("thirty ");
                     break;
                 case 4 :
-                    System.out.println("forty");
+                    System.out.print("forty ");
                     break;
                 case 5 :
-                    System.out.println("fifty");
+                    System.out.print("fifty ");
                     break;
                 case 6 :
-                    System.out.println("sixty");
+                    System.out.print("sixty ");
                     break;
                 case 7 :
-                    System.out.println("seventy");
+                    System.out.print("seventy ");
                     break;
                 case 8 :
-                    System.out.println("eighty");
+                    System.out.print("eighty ");
                     break;
                 case 9 :
-                    System.out.println("ninety");
+                    System.out.print("ninety ");
                     break;
             }
             switch (dv) {
                 case 0 :
-                    System.out.println("and");
+                    System.out.print("and ");
                     break;
                 case 1 :
-                    System.out.println("one");
+                    System.out.print("one ");
                     break;
                 case 2 :
-                    System.out.println("two");
+                    System.out.print("two ");
                     break;
                 case 3 :
-                    System.out.println("three");
+                    System.out.print("three ");
                     break;
                 case 4 :
-                    System.out.println("four");
+                    System.out.print("four ");
                     break;
                 case 5 :
-                    System.out.println("five");
+                    System.out.print("five ");
                     break;
                 case 6 :
-                    System.out.println("six");
+                    System.out.print("six ");
                     break;
                 case 7 :
-                    System.out.println("seven");
+                    System.out.print("seven ");
                     break;
                 case 8 :
-                    System.out.println("eight");
+                    System.out.print("eight ");
                     break;
                 case 9 :
-                    System.out.println("nine");
+                    System.out.print("nine ");
                     break;
             }
         }
