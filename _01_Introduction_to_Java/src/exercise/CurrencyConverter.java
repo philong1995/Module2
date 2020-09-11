@@ -2,7 +2,7 @@ package exercise;
 
 import java.util.Scanner;
 
-public class currency_converter {
+public class CurrencyConverter {
 
     public static void main(String[] args) {
         double USD;

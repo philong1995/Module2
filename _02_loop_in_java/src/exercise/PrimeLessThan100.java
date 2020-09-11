@@ -1,6 +1,6 @@
 package exercise;
 
-public class prime_less_than_100 {
+public class PrimeLessThan100 {
     public static void main(String[] args) {
         int i ;
         int num ;

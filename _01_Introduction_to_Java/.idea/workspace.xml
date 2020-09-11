@@ -2,10 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87db1c32-584c-4a9e-892d-0380eaf7117f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/exercise/converter_number_to_text2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/_01_Introduction_to_Java/exercise/converter_number_to_text.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/_01_Introduction_to_Java/exercise/converter_number_to_text.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exercise/converter_number_to_text.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exercise/converter_number_to_text.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../_03_Array_and_Method_in_Java/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../_03_Array_and_Method_in_Java/src/excercise/MergeArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exercise/converter_number_to_text.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exercise/ConverterNumberToText.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exercise/converter_number_to_text2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exercise/currency_converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exercise/CurrencyConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exercise/display_the_greeting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exercise/DisplayTheGreeting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_03_Array_and_Method_in_Java/out/production/_03_Array_and_Method_in_Java/excercise/add_element_to_array.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_03_Array_and_Method_in_Java/out/production/_03_Array_and_Method_in_Java/excercise/delete_element_in_array.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_03_Array_and_Method_in_Java/out/production/_03_Array_and_Method_in_Java/excercise/search_value_min.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_03_Array_and_Method_in_Java/src/excercise/add_element_to_array.java" beforeDir="false" afterPath="$PROJECT_DIR$/../_03_Array_and_Method_in_Java/src/excercise/AddElementToArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_03_Array_and_Method_in_Java/src/excercise/delete_element_in_array.java" beforeDir="false" afterPath="$PROJECT_DIR$/../_03_Array_and_Method_in_Java/src/excercise/DeleteElementInArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_03_Array_and_Method_in_Java/src/excercise/search_value_min.java" beforeDir="false" afterPath="$PROJECT_DIR$/../_03_Array_and_Method_in_Java/src/excercise/SearchValueMin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_03_Array_and_Method_in_Java/src/practice/search_name_in_array.java" beforeDir="false" afterPath="$PROJECT_DIR$/../_03_Array_and_Method_in_Java/src/practice/SearchNameInArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_03_Array_and_Method_in_Java/src/practice/search_value_max.java" beforeDir="false" afterPath="$PROJECT_DIR$/../_03_Array_and_Method_in_Java/src/practice/SearchValueMax.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_03_Array_and_Method_in_Java/src/practice/swap_number_in_array.java" beforeDir="false" afterPath="$PROJECT_DIR$/../_03_Array_and_Method_in_Java/src/practice/SwapNumberInArray.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,9 +45,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
   </component>
-  <component name="RunManager" selected="Application.converter_number_to_text">
-    <configuration name="converter_number_to_text" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="exercise.converter_number_to_text" />
+  <component name="RunManager" selected="Application.ConverterNumberToText">
+    <configuration name="ConverterNumberToText" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="exercise.ConverterNumberToText" />
       <module name="_01_Introduction_to_Java" />
       <extension name="coverage">
         <pattern>
@@ -48,8 +59,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="currency_converter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="exercise.currency_converter" />
+    <configuration name="CurrencyConverter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="exercise.CurrencyConverter" />
+      <module name="_01_Introduction_to_Java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="exercise.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DisplayTheGreeting" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="exercise.DisplayTheGreeting" />
       <module name="_01_Introduction_to_Java" />
       <extension name="coverage">
         <pattern>
@@ -74,19 +98,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="display_the_greeting" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="exercise.display_the_greeting" />
-      <module name="_01_Introduction_to_Java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="exercise.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="interPretation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="practice.interPretation" />
       <module name="_01_Introduction_to_Java" />
@@ -102,9 +113,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.converter_number_to_text" />
-        <item itemvalue="Application.currency_converter" />
-        <item itemvalue="Application.display_the_greeting" />
+        <item itemvalue="Application.ConverterNumberToText" />
+        <item itemvalue="Application.CurrencyConverter" />
+        <item itemvalue="Application.DisplayTheGreeting" />
         <item itemvalue="Application.declare_variable" />
         <item itemvalue="Application.interPretation" />
       </list>
@@ -129,6 +140,7 @@
       <workItem from="1599620700291" duration="7000" />
       <workItem from="1599621128986" duration="1430000" />
       <workItem from="1599636357533" duration="1764000" />
+      <workItem from="1599791436205" duration="75000" />
     </task>
     <servers />
   </component>

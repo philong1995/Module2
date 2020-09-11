@@ -2,7 +2,7 @@ package exercise;
 
 import java.util.Scanner;
 
-public class display_20_prime {
+public class Display20Prime {
     public static void main(String[] args) {
         int n;
         int status = 1;

@@ -2,7 +2,7 @@ package excercise;
 
 import java.util.Scanner;
 
-public class add_element_to_array {
+public class AddElementToArray {
     public static void main(String[] args) {
         int size;
         int[] array;

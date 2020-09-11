@@ -2,7 +2,7 @@ package exercise;
 
 import java.util.Scanner;
 
-public class draw {
+public class Draw {
     public static void main(String[] args) {
         int choice = -1;
         int n;

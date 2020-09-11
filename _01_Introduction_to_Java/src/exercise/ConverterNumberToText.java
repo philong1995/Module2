@@ -2,7 +2,7 @@ package exercise;
 
 import java.util.Scanner;
 
-public class converter_number_to_text {
+public class ConverterNumberToText {
 
 
     public static void main(String[] args) {

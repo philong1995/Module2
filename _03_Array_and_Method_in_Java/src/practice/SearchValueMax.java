@@ -2,7 +2,7 @@ package practice;
 
 import java.util.Scanner;
 
-public class search_value_max {
+public class SearchValueMax {
     public static void main(String[] args) {
         int size;
         int[] array;

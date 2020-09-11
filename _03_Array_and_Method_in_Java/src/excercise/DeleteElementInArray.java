@@ -2,7 +2,7 @@ package excercise;
 
 import java.util.Scanner;
 
-public class delete_element_in_array {
+public class DeleteElementInArray {
     public static void main(String[] args) {
         int n, i, c;
         Scanner scanner = new Scanner(System.in);

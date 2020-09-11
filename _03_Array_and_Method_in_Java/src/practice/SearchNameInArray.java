@@ -2,7 +2,7 @@ package practice;
 
 import java.util.Scanner;
 
-public class search_name_in_array {
+public class SearchNameInArray {
     public static void main(String[] args) {
         String[] students = {"Christian", "Michael", "Camila", "Sienna", "Tanya", "Connor", "Zachariah", "Mallory", "Zoe", "Emily", "Long"};
 

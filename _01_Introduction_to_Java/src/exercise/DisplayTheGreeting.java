@@ -1,6 +1,6 @@
 package exercise;
 import java.util.Scanner;
-public class display_the_greeting {
+public class DisplayTheGreeting {
     public static void main(String[] args) {
         System.out.println("Enter your name: ");
         Scanner scanner = new Scanner(System.in);
