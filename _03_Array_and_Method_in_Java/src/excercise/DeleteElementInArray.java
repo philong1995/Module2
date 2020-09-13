@@ -22,18 +22,21 @@ public class DeleteElementInArray {
         System.out.print("Enter a number you want delete: ");
         int k = scanner.nextInt();
 
-        boolean t = false;
-        for (i = 0; i < n; i++) {
-            if (array[i] == k) {
-                t = true;
-                break;
-            }
-        }
-        if (t) {
-            System.out.println("Number you want delete is a element " + (i+1) + " in array.");
-        } else {
-            System.out.println("Number you want delete not in array.");
-        }
+//        int h = 0;
+//        for (; array[h] == array[array.length-1]; h++) {
+//            boolean t = false;
+//            for (i = 0; i < n; i++) {
+//                if (array[i] == k) {
+//                    t = true;
+//                    break;
+//                }
+//            }
+//            if (t) {
+//                System.out.println("Number you want delete is a element " + (i + 1) + " in array.");
+//            } else {
+//                System.out.println("Number you want delete not in array.");
+//            }
+//        }
 
         for (c = i = 0; i < n; i++) {
             if (array[i] != k) {
@@ -46,7 +49,7 @@ public class DeleteElementInArray {
 
         System.out.println("new array after delete " + k + " is: ");
         for (i = 0; i < n; i++) {
-            System.out.print(array[i] + "\t");
+            System.out.print(array[i] + " ");
         }
     }
 }
