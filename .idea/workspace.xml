@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c884408d-9785-4245-a1ce-6ef0896a83ef" name="Default Changelist" comment="" />
+    <list default="true" id="c884408d-9785-4245-a1ce-6ef0896a83ef" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/_07_Abstract Class_and_Interface/src/exercise/Resizeable/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_07_Abstract Class_and_Interface/src/exercise/Resizeable/Resizeable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_07_Abstract Class_and_Interface/src/practice/InterfaceEdible/AbstractAndInterfaceTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_07_Abstract Class_and_Interface/src/practice/InterfaceEdible/AbstractTests2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_07_Abstract Class_and_Interface/src/practice/InterfaceEdible/Comparable/Circle/Circle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_07_Abstract Class_and_Interface/src/practice/InterfaceEdible/Comparable/ComparableCircle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_07_Abstract Class_and_Interface/src/practice/InterfaceEdible/Comparable/ComparableCircleTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_07_Abstract Class_and_Interface/src/practice/InterfaceEdible/Comparable/Rectangle/Rectangle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_07_Abstract Class_and_Interface/src/practice/InterfaceEdible/Comparable/Shape/Shape.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_07_Abstract Class_and_Interface/src/practice/InterfaceEdible/Comparable/Square/Square.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_07_Abstract Class_and_Interface/src/practice/InterfaceEdible/Comparator/ComparableCircle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_07_Abstract Class_and_Interface/src/practice/InterfaceEdible/Comparator/ComparableCircleTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_07_Abstract Class_and_Interface/src/practice/InterfaceEdible/animal/Animal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_07_Abstract Class_and_Interface/src/practice/InterfaceEdible/animal/Chicken.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_07_Abstract Class_and_Interface/src/practice/InterfaceEdible/animal/Tiger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_07_Abstract Class_and_Interface/src/practice/InterfaceEdible/edible/Edible.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_07_Abstract Class_and_Interface/src/practice/InterfaceEdible/fruit/Apple.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_07_Abstract Class_and_Interface/src/practice/InterfaceEdible/fruit/Fruit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_07_Abstract Class_and_Interface/src/practice/InterfaceEdible/fruit/Orange.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_06_Inhertance/out/production/_06_Inhertance/exercise/Point2DAndPoint3D/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/_06_Inhertance/out/production/_06_Inhertance/exercise/Point2DAndPoint3D/App.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,6 +55,8 @@
       <option name="presentableId" value="Default" />
       <updated>1599727219347</updated>
       <workItem from="1599727221730" duration="9000" />
+      <workItem from="1600225857393" duration="11000" />
+      <workItem from="1600279358449" duration="3000" />
     </task>
     <servers />
   </component>
