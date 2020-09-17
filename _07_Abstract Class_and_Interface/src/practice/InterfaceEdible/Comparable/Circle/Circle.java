@@ -42,14 +42,15 @@ public class Circle extends Shape {
 //                "radius=" + radius +
 //                '}';
 
-        return "A Circle with radius="
-                + getRadius()
-                + ", which is a subclass of "
-                + super.toString();
+//        return "A Circle with radius="
+//                + getRadius()
+//                + ", which is a subclass of "
+//                + super.toString();
+        return "A Circle area is: "+getArea();
     }
 
     public void resize(double percent) {
-        this.radius *= (percent / 100);
+        this.radius += this.radius*(percent / 100);
     }
 
 //    public abstract int compareTo(ComparableCircle o);

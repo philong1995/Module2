@@ -31,6 +31,8 @@ public abstract class Shape implements Resizeable{
         this.filled = filled;
     }
 
+    public abstract double getArea();
+
     @Override
     public String toString() {
         return "Shape {" +

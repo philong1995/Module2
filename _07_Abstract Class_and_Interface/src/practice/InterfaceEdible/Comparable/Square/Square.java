@@ -1,8 +1,9 @@
 package practice.InterfaceEdible.Comparable.Square;
 
+import exercise.Comparable.Colorable;
 import practice.InterfaceEdible.Comparable.Rectangle.Rectangle;
 
-public class Square extends Rectangle {
+public class Square extends Rectangle implements Colorable {
     public Square(){
 
     }
@@ -24,15 +25,15 @@ public class Square extends Rectangle {
         super.setWidth(side);
     }
 
-    @Override
-    public void setWidth(double width) {
-        setSide(width);
-    }
-
-    @Override
-    public void setLength(double length) {
-        setSide(length);
-    }
+//    @Override
+//    public void setWidth(double width) {
+//        setSide(width);
+//    }
+//
+//    @Override
+//    public void setLength(double length) {
+//        setSide(length);
+//    }
 
     @Override
     public String toString() {
@@ -43,6 +44,12 @@ public class Square extends Rectangle {
     }
 
     public void resize(double percent) {
-//        this.getLength(double side) *= (percent / 100);
+
+        setSide(getSide() + getSide()*(percent / 100));
+    }
+
+    @Override
+    public void howToColor() {
+        System.out.println("Color all four sides..");
     }
 }

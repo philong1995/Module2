@@ -51,16 +51,17 @@ public class Rectangle extends Shape {
 //                "width=" + width +
 //                ", length=" + length +
 //                '}';
-        return "A Rectangle with width="
-                + getWidth()
-                + " and length="
-                + getLength()
-                + ", which is a subclass of "
-                + super.toString();
+//        return "A Rectangle with width="
+//                + getWidth()
+//                + " and length="
+//                + getLength()
+//                + ", which is a subclass of "
+//                + super.toString();
+        return "A Rectangle area is: "+getArea();
     }
 
     public void resize(double percent) {
-        this.length *= (percent / 100);
-        this.width += (percent / 100);
+        this.length +=this.length* (percent / 100);
+        this.width +=this.width* (percent / 100);
     }
 }
