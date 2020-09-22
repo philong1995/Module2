@@ -45,10 +45,11 @@ public class MyList<E> {
         return null;
     }
 
-    public E clone(){
-        MyList<E> clone = new MyList<>(elements.length);
-        clone.elements = Arrays.copyOf(elements, size);
-        return (E) clone;
+    public MyList<E> clone(){
+        MyList<E> clone = new MyList<>();
+        clone.elements = Arrays.copyOf(this.elements, this.size);
+        clone.size = this.size;
+        return clone;
     }
 
 // Mở rộng mảng.

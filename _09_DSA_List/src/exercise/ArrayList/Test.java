@@ -30,11 +30,11 @@ public class Test {
             System.out.println("element "+(i+1)+" is : "+listNumber.get(i));
         }
 
-//        System.out.println("After clone.");
-//        newlistNumber = listNumber.clone();
-//        for(int i = 0;i < newlistNumber.size();i++){
-//            System.out.println("element "+(i+1)+" is : "+newlistNumber.get(i));
-//        }
+        System.out.println("After clone.");
+        newlistNumber = listNumber.clone();
+        for(int i = 0;i < newlistNumber.size();i++){
+            System.out.println("element "+(i+1)+" is : "+newlistNumber.get(i));
+        }
         System.out.println("After indexOf.");
         System.out.println(listNumber.indexOf(4));
         System.out.println("After constains.");
