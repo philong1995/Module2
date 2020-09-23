@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 
-public class UseTreeMap<I extends Number, I1 extends Number> {
+public class UseTreeMap<N> {
     public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
