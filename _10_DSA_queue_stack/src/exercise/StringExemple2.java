@@ -9,7 +9,7 @@ class StringExample2 {
     public static final char BREAK_LINE = '\n';
 
     public static void main(String[] args) {
-        String str = "abc bcd cde def efg fgh.";
+        String str = "Bui Phi Long rat dep trai \nBui Phi Long dang hoc o CodeGym";
         System.out.println("---------------------------------");
         System.out.println(str);
         System.out.println("---------------------------------");
