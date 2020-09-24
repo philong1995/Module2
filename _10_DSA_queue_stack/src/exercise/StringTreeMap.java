@@ -24,19 +24,14 @@ public class StringTreeMap {
         for (Character key : map.keySet()) {
             for(int i = 0; i < newString.length();i++){
                 if (key.equals(newString.charAt(i))) {
-//                    int count = map.get(key) + 1;
                     map.put(key, map.get(key) + 1);
                 }
-//                else {
-//                    map.put(key, 1);
-//                }
             }
         }
 
         System.out.print("Các phần tử xuất hiện : \n");
         for (Character key : map.keySet()) {
-//            System.out.printf("%d xuất hiện %d lần.\n", key, map.get(key));
-            System.out.println(key + " " + map.get(key));
+            System.out.println("Kí tự " +key +" xuất hiện " +map.get(key)+" lần.");
         }
     }
 }
