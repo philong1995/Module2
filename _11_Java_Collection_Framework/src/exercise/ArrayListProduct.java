@@ -31,17 +31,26 @@ public class ArrayListProduct extends ProductManager {
                 String name = scanner.nextLine();
                 listProduct.get(i).setNameProduct(name);
             }
+            else {
+                System.out.println("not exist. Please enter id again.");
+                edit();
+                break;
+            }
         }
     }
 
     static void delete() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter ID: ");
-        scanner.nextLine();
         int id = scanner.nextInt();
         for ( int i = 0; i < listProduct.size(); i++) {
             if (listProduct.get(i).getIdProduct() == id) {
                 listProduct.remove(i);
+            }
+            else {
+                System.out.println("not exist. Please enter id again.");
+                delete();
+                break;
             }
         }
     }
@@ -54,10 +63,19 @@ public class ArrayListProduct extends ProductManager {
             if (listProduct.get(i).getIdProduct() == id) {
                 System.out.println(listProduct.get(i));
             }
+            else {
+                System.out.println("not exist. Please enter id again.");
+                search();
+                break;
+            }
         }
     }
 
-    static void menu() {
+    static void exit(){
+        System.out.println("Goodbye.");
+    }
+
+    public static void menu() {
         System.out.println("Menu : \n"+
                 "--------------------\n"+
                 "1.Add new Product.\n" +
@@ -94,9 +112,6 @@ public class ArrayListProduct extends ProductManager {
                 menu();
                 break;
         }
-    }
-    static void exit(){
-        System.out.println("Goodbye.");
     }
 
     public static void main(String[] args) {
