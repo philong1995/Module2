@@ -1,5 +1,7 @@
 package exercise;
 
+import java.util.Arrays;
+
 public class InsertionSort {
 
     public static void insertionSort(int arr[]){
@@ -28,6 +30,7 @@ public class InsertionSort {
     public static void main(String[] args) {
         int list[] = {2, 9, 5, 4, 8, 1, 6};
         insertionSort(list);
-        display(list);
+//        display(list);
+        System.out.println(Arrays.toString(list));
     }
 }
