@@ -2,7 +2,7 @@ package exercise;
 
 public class IllegalTriangleException extends IndexOutOfBoundsException{
     public IllegalTriangleException(int a, int b, int c) throws IllegalTriangleException {
-        if ( a + b <= c || b + c <= a || c + a <= b){
+        if (a <= 0 || c <= 0 || b <= 0 || a + b <= c || b + c <= a || c + a <= b){
             throw this;
         }
         else {
