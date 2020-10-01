@@ -15,7 +15,7 @@ public class CopyClass {
             FileReader fileReader = new FileReader(ORIGINAL);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-            String line = null;
+            String line;
 
             while ((line = bufferedReader.readLine()) != null) {
                 bufferedWriter.write(line);
