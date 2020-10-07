@@ -1,20 +1,31 @@
 package models;
 
 public abstract class Service {
+    private String idService;
     private String nameService;
     private int areaService;
     private int payService;
     private int amountPeople;
     private String typeService;
 
-    public Service(){}
+    public Service() {
+    }
 
-    public Service(String nameService, int areaService, int payService, int amountPeople, String typeService) {
+    public Service(String idService, String nameService, int areaService, int payService, int amountPeople, String typeService) {
+        this.idService = idService;
         this.nameService = nameService;
         this.areaService = areaService;
         this.payService = payService;
         this.amountPeople = amountPeople;
         this.typeService = typeService;
+    }
+
+    public String getIdService() {
+        return idService;
+    }
+
+    public void setIdService(String idService) {
+        this.idService = idService;
     }
 
     public String getNameService() {
@@ -56,12 +67,6 @@ public abstract class Service {
     public void setTypeService(String typeService) {
         this.typeService = typeService;
     }
-
-    public void massage(){}
-    public void karaoke(){}
-    public void food(){}
-    public void drink(){}
-    public void rentCar(){}
 
     @Override
     public String toString(){
