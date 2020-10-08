@@ -148,7 +148,7 @@ public class MainControllers {
         check = false;
         while (!check){
             check = true;
-            if (!checkNumber(numberOfFloors)){
+            if (!checkNumberFloor(numberOfFloors)){
                 System.err.print("Enter again integer: ");
                 numberOfFloors = scanner.nextLine();
                 check = false;
@@ -189,7 +189,7 @@ public class MainControllers {
         check = false;
         while (!check){
             check = true;
-            if (!checkNumber(numberOfFloors)){
+            if (!checkNumberFloor(numberOfFloors)){
                 System.err.print("Enter again integer: ");
                 numberOfFloors = scanner.nextLine();
                 check = false;
