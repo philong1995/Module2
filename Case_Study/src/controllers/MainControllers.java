@@ -1,9 +1,6 @@
-package Controllers;
+package controllers;
 
-import models.House;
-import models.Room;
-import models.Service;
-import models.Villa;
+import models.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,19 +17,18 @@ public class MainControllers {
     private static String payService;
     private static String amountPeople;
     private static String typeService;
-    private static String standardRoom;
-    private static String descriptionOfOtherAmenities;
-    private static String swimmingPoolArea;
-    private static String numberOfFloors;
-    private static String freeService;
-    private static final String VILLA = "/Users/macbookpro/Desktop/Module2/Case_Study/src/Controllers/Villa.csv";
-    private static final String HOUSE = "/Users/macbookpro/Desktop/Module2/Case_Study/src/Controllers/House.csv";
-    private static final String ROOM = "/Users/macbookpro/Desktop/Module2/Case_Study/src/Controllers/Room.csv";
+
+    private static final String CUSTOMER = "/Users/macbookpro/Desktop/Module2/Case_Study/src/data/Customer.csv";
+    private static final String VILLA = "/Users/macbookpro/Desktop/Module2/Case_Study/src/data/Villa.csv";
+    private static final String HOUSE = "/Users/macbookpro/Desktop/Module2/Case_Study/src/data/House.csv";
+    private static final String ROOM = "/Users/macbookpro/Desktop/Module2/Case_Study/src/data/Room.csv";
     public static final String COMMA = ", ";
+
     static List<Villa> villaList = new ArrayList<>();
     static List<Room> roomList = new ArrayList<>();
     static List<House> houseList = new ArrayList<>();
     static List<Service> serviceList = new ArrayList<>();
+    static List<Customer> customerList = new ArrayList<>();
 
     public static void menu() {
         System.out.println("----------------------------");
@@ -56,10 +52,14 @@ public class MainControllers {
                 menu();
                 break;
             case 3:
-
+                addNewCustomer();
                 menu();
                 break;
             case 4:
+                showInfoCustomer();
+                menu();
+                break;
+            case 5:
 
                 menu();
                 break;
@@ -112,6 +112,7 @@ public class MainControllers {
 //  Thêm vào Villa
     static void addNewVilla(){
         addService();
+        String standardRoom ="";
         System.out.print("Enter standard Villa: ");
         standardRoom = scanner.nextLine();
         boolean check = false;
@@ -124,9 +125,11 @@ public class MainControllers {
             }
         }
 
+        String descriptionOfOtherAmenities = "";
         System.out.print("Description of the facility: ");
         descriptionOfOtherAmenities = scanner.nextLine();
 
+        String swimmingPoolArea = "";
         System.out.print("Arena pool(bigger 30m2): ");
         swimmingPoolArea = scanner.nextLine();
         check = false;
@@ -143,6 +146,7 @@ public class MainControllers {
             }
         }
 
+        String numberOfFloors ="";
         System.out.print("Number floor Villa: ");
         numberOfFloors = scanner.nextLine();
         check = false;
@@ -170,6 +174,7 @@ public class MainControllers {
 // Thêm vào House
     static void addNewHouse(){
         addService();
+        String standardRoom ="";
         System.out.print("Enter standard House: ");
         standardRoom = scanner.nextLine();
         boolean check = false;
@@ -183,9 +188,10 @@ public class MainControllers {
         }
 
         System.out.print("Description of the facility: ");
-        descriptionOfOtherAmenities = scanner.nextLine();
+        String descriptionOfOtherAmenities = scanner.nextLine();
+
         System.out.print("Number floor House: ");
-        numberOfFloors = scanner.nextLine();
+        String numberOfFloors = scanner.nextLine();
         check = false;
         while (!check){
             check = true;
@@ -211,6 +217,7 @@ public class MainControllers {
 // Thêm vào room
     static void addNewRoom(){
         addService();
+        String freeService = "";
         System.out.print("Enter free service(eat, drink): ");
         freeService = scanner.nextLine();
 
@@ -247,7 +254,7 @@ public class MainControllers {
         while (!check){
             check = true;
             if (!checkNameService(nameService)){
-                System.err.print("Enter again for correct format ( Aaaaa ): ");
+                System.err.print("Enter again for correct format (Xxxx Xxxx): ");
                 nameService = scanner.nextLine();
                 check = false;
             }
@@ -353,6 +360,97 @@ public class MainControllers {
         }
     }
 
+    static void addNewCustomer(){
+        String nameCustomer = "";
+        System.out.print("Enter your name: ");
+        nameCustomer = scanner.nextLine();
+        boolean check = false;
+        while (!check){
+            check = true;
+            if (!checkNameService(nameCustomer)){
+                System.err.print("Enter again for correct format (Xxxx Xxxx): ");
+                nameCustomer = scanner.nextLine();
+                check = false;
+            }
+        }
+
+        String birthDay = "";
+        System.out.print("Enter your birth day: ");
+        birthDay = scanner.nextLine();
+        check = false;
+        while (!check){
+            check = true;
+            if (!checkBirth(birthDay)){
+                System.err.print("Enter again for correct format ( dd/mm/yyyy ): ");
+                birthDay = scanner.nextLine();
+                check = false;
+            }
+        }
+
+        String gender = "";
+        System.out.print("Enter your gender: ");
+        gender = upperCaseWords(scanner.nextLine());
+        check = false;
+        while (!check){
+            check = true;
+            if (!checkGender(gender)){
+                System.err.print("Enter again gender (Female or Male or Unknow) : ");
+                gender = upperCaseWords(scanner.nextLine());
+                check = false;
+            }
+        }
+
+        String idCard = "";
+        System.out.print("Enter your idCard: ");
+        idCard = scanner.nextLine();
+        check = false;
+        while (!check){
+            check = true;
+            if (!checkID(idCard)){
+                System.err.print("Enter again for correct format ( XXX XXX XXX ): ");
+                idCard = scanner.nextLine();
+                check = false;
+            }
+        }
+
+        String phoneNumber = "";
+        System.out.print("Enter your phone number: ");
+        phoneNumber = scanner.nextLine();
+
+        String email= "";
+        System.out.print("Enter your email: ");
+        email = scanner.nextLine();
+        check = false;
+        while (!check){
+            check = true;
+            if (!checkEmail(email)){
+                System.err.print("Enter again for correct format ( abc@abc.abc ): ");
+                email = scanner.nextLine();
+                check = false;
+            }
+        }
+
+        System.out.print("Enter your type service: ");
+        String typeCustomer = scanner.nextLine();
+
+        System.out.print("Enter your address: ");
+        String address = scanner.nextLine();
+
+        Customer customer = new Customer(nameCustomer, birthDay, gender, idCard, phoneNumber, email, typeCustomer, address);
+        customerList.add(customer);
+
+        String line = null;
+        for (Customer customers : customerList){
+            line = customers.getFullName() + COMMA + customers.getBirthDay() + COMMA + customers.getGender() + COMMA + customers.getIdCard() + COMMA + customers.getPhoneNumber() + COMMA + customers.getEmail() + COMMA + customers.getTypeCustomer() + COMMA + customers.getAddress();
+            ReadAndWrite.writeFile(CUSTOMER,line);
+        }
+    }
+
+    static void showInfoCustomer(){
+        List<String> lineList = ReadAndWrite.readFile(CUSTOMER);
+        System.out.println(lineList);
+    }
+
 //    Hiển thị villa
     static void showAllVilla(){
         List<String> lineList = ReadAndWrite.readFile(VILLA);
@@ -393,6 +491,44 @@ public class MainControllers {
         Pattern pattern = Pattern.compile("[0-9]+");
         Matcher matcher = pattern.matcher(numberFloor);
         return matcher.matches();
+    }
+
+    static boolean checkEmail(String email){
+        Pattern pattern = Pattern.compile("[A-za-z0-9]*([.]?\\w*)*(@)[a-z]*(.)[a-z]*");
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
+    static boolean checkGender(String gender){
+        Pattern pattern = Pattern.compile("(Female)|(Male)|(Unknow)");
+        Matcher matcher = pattern.matcher(gender);
+        return matcher.matches();
+    }
+
+    static boolean checkID(String id){
+        Pattern pattern = Pattern.compile("[0-9]{3}( )[0-9]{3}( )[0-9]{3}");
+        Matcher matcher = pattern.matcher(id);
+        return matcher.matches();
+    }
+
+    static boolean checkBirth(String birth){
+        Pattern pattern = Pattern.compile("([0][1-9]|[12][0-9]|[3][01])/([0][1-9]|[1][012])/([2][0][0]([012])|[1][9]\\d{2})");
+        Matcher matcher = pattern.matcher(birth);
+        return matcher.matches();
+    }
+
+    public static String upperCaseWords(String line) {
+        line = line.trim().toLowerCase();
+        String[] data = line.split("\\s");
+        line = "";
+        for(int i =0;i< data.length;i++)
+        {
+            if(data[i].length()>1)
+                line = line + data[i].substring(0,1).toUpperCase()+data[i].substring(1)+" ";
+            else
+                line = line + data[i].toUpperCase();
+        }
+        return line.trim();
     }
 
     public static void main(String[] args) {
