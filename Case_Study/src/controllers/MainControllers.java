@@ -31,6 +31,8 @@ public class MainControllers {
     static List<Customer> customerList = new ArrayList<>();
 
     public static void menu() {
+        String yourChoose;
+        do {
         System.out.println("----------------------------");
         System.out.println("1.Add New Services. \n" +
                 "2.Show Services. \n" +
@@ -41,80 +43,72 @@ public class MainControllers {
                 "7.Exit.");
         System.out.println("----------------------------");
         System.out.print("Enter your choose: ");
-        String yourChoose = scanner.nextLine();
-        switch (Integer.parseInt(yourChoose)){
-            case 1:
-                addNewServies();
-                menu();
-                break;
-            case 2:
-                showService();
-                menu();
-                break;
-            case 3:
-                addNewCustomer();
-                menu();
-                break;
-            case 4:
-                showInfoCustomer();
-                menu();
-                break;
-            case 5:
+        yourChoose = scanner.nextLine();
+            switch (Integer.parseInt(yourChoose)){
+                case 1:
+                    addNewServies();
+                    break;
+                case 2:
+                    showService();
+                    break;
+                case 3:
+                    addNewCustomer();
+                    break;
+                case 4:
+                    showInfoCustomer();
+                    break;
+                case 5:
 
-                menu();
-                break;
-            case 6:
+                    break;
+                case 6:
 
-                menu();
-                break;
-            case 7:
-                System.out.println("Goodbye!!!");
-                System.exit(0);
-            default:
-                System.out.println("Your choose not exist.Please choose again.");
-                menu();
-                break;
-        }
+                    break;
+                case 7:
+                    System.out.println("Goodbye!!!");
+                    System.exit(0);
+                default:
+                    System.out.println("Your choose not exist.Please choose again.");
+                    break;
+            }
+        }while (Integer.parseInt(yourChoose) < 8 || Integer.parseInt(yourChoose) > 0);
     }
 
 //      Thêm vào dịch vụ mới.
-    static void addNewServies(){
-        System.out.println("1.Add New Villa. \n" +
-                "2.Add New House. \n" +
-                "3.Add New Room. \n" +
-                "4.Back to menu.");
-        System.out.println("----------------------------");
-        System.out.print("Enter your choose: ");
-        String yourChoose = scanner.nextLine();
-        switch (Integer.parseInt(yourChoose)){
-            case 1:
-                addNewVilla();
-                addNewServies();
-                break;
-            case 2:
-                addNewHouse();
-                addNewServies();
-                break;
-            case 3:
-                addNewRoom();
-                addNewServies();
-                break;
-            case 4:
-                menu();
-                break;
-            default:
-                System.out.println("Your choose not exist.Please choose again.");
-                addNewServies();
-                break;
-        }
+    static void addNewServies() {
+        String yourChoose;
+        do {
+            System.out.println("1.Add New Villa. \n" +
+                    "2.Add New House. \n" +
+                    "3.Add New Room. \n" +
+                    "4.Back to menu.");
+            System.out.println("----------------------------");
+            System.out.print("Enter your choose: ");
+            yourChoose = scanner.nextLine();
+            switch (Integer.parseInt(yourChoose)) {
+                case 1:
+                    addNewVilla();
+                    break;
+                case 2:
+                    addNewHouse();
+                    break;
+                case 3:
+                    addNewRoom();
+                    break;
+                case 4:
+                    menu();
+                    break;
+                default:
+                    System.out.println("Your choose not exist.Please choose again.");
+                    break;
+            }
+        }while (Integer.parseInt(yourChoose) < 5 || Integer.parseInt(yourChoose) > 0);
     }
 
 //  Thêm vào Villa
     static void addNewVilla(){
         addService();
-        String standardRoom ="";
         System.out.print("Enter standard Villa: ");
-        standardRoom = scanner.nextLine();
+        String standardRoom = scanner.nextLine();
         boolean check = false;
         while (!check){
             check = true;
@@ -125,13 +119,11 @@ public class MainControllers {
             }
         }
 
-        String descriptionOfOtherAmenities = "";
         System.out.print("Description of the facility: ");
-        descriptionOfOtherAmenities = scanner.nextLine();
+        String descriptionOfOtherAmenities = scanner.nextLine();
 
-        String swimmingPoolArea = "";
         System.out.print("Arena pool(bigger 30m2): ");
-        swimmingPoolArea = scanner.nextLine();
+        String swimmingPoolArea = scanner.nextLine();
         check = false;
         while (!check){
             check = true;
@@ -146,9 +138,8 @@ public class MainControllers {
             }
         }
 
-        String numberOfFloors ="";
         System.out.print("Number floor Villa: ");
-        numberOfFloors = scanner.nextLine();
+        String numberOfFloors = scanner.nextLine();
         check = false;
         while (!check){
             check = true;
@@ -174,9 +165,8 @@ public class MainControllers {
 // Thêm vào House
     static void addNewHouse(){
         addService();
-        String standardRoom ="";
         System.out.print("Enter standard House: ");
-        standardRoom = scanner.nextLine();
+        String standardRoom = scanner.nextLine();
         boolean check = false;
         while (!check){
             check = true;
@@ -217,9 +207,8 @@ public class MainControllers {
 // Thêm vào room
     static void addNewRoom(){
         addService();
-        String freeService = "";
         System.out.print("Enter free service(eat, drink): ");
-        freeService = scanner.nextLine();
+        String freeService = scanner.nextLine();
 
         Room room = new Room(id, nameService, Integer.parseInt(useArea), Integer.parseInt(payService), Integer.parseInt(amountPeople), typeService, freeService);
         roomList.add(room);
@@ -235,7 +224,6 @@ public class MainControllers {
 
 // Thêm vào dịch vụ
     static void addService(){
-
         System.out.print("Enter ID service: ");
         id = scanner.nextLine();
         boolean check = false;
@@ -322,48 +310,46 @@ public class MainControllers {
         }
     }
 
-    static void showService(){
-        System.out.println("1.Show all Villa. \n" +
-                "2.Show all House. \n" +
-                "3.Show all Room. \n" +
-                "4.Show All Name Villa Not Duplicate. \n" +
-                "5.Show All Name House Not Duplicate. \n" +
-                "6.Show All Name Room Not Duplicate. \n" +
-                "7.Back to menu. \n" +
-                "8.Exit.");
-        System.out.println("----------------------------");
-        System.out.print("Enter your choose: ");
-        String yourchoose = scanner.nextLine();
-        switch (Integer.parseInt(yourchoose)){
-            case 1:
-                showAllVilla();
-                showService();
-                break;
-            case 2:
-                showAllHouse();
-                showService();
-                break;
-            case 3:
-                showAllRoom();
-                showService();
-                break;
-            case 7:
-                menu();
-                break;
-            case 8:
-                System.out.println("Goodbye!!!");
-                System.exit(0);
-            default:
-                System.out.println("Your choose not exist.Please choose again.");
-                showService();
-                break;
-        }
+    static void showService() {
+        String yourchoose;
+        do {
+            System.out.println("1.Show all Villa. \n" +
+                    "2.Show all House. \n" +
+                    "3.Show all Room. \n" +
+                    "4.Show All Name Villa Not Duplicate. \n" +
+                    "5.Show All Name House Not Duplicate. \n" +
+                    "6.Show All Name Room Not Duplicate. \n" +
+                    "7.Back to menu. \n" +
+                    "8.Exit.");
+            System.out.println("----------------------------");
+            System.out.print("Enter your choose: ");
+            yourchoose = scanner.nextLine();
+            switch (Integer.parseInt(yourchoose)) {
+                case 1:
+                    showAllVilla();
+                    break;
+                case 2:
+                    showAllHouse();
+                    break;
+                case 3:
+                    showAllRoom();
+                    break;
+                case 7:
+                    menu();
+                    break;
+                case 8:
+                    System.out.println("Goodbye!!!");
+                    System.exit(0);
+                default:
+                    System.out.println("Your choose not exist.Please choose again.");
+                    break;
+            }
+        }while (Integer.parseInt(yourchoose) < 9 || Integer.parseInt(yourchoose) > 0);
     }
 
     static void addNewCustomer(){
-        String nameCustomer = "";
         System.out.print("Enter your name: ");
-        nameCustomer = scanner.nextLine();
+        String nameCustomer = scanner.nextLine();
         boolean check = false;
         while (!check){
             check = true;
@@ -374,9 +360,8 @@ public class MainControllers {
             }
         }
 
-        String birthDay = "";
         System.out.print("Enter your birth day: ");
-        birthDay = scanner.nextLine();
+        String birthDay = scanner.nextLine();
         check = false;
         while (!check){
             check = true;
@@ -387,9 +372,8 @@ public class MainControllers {
             }
         }
 
-        String gender = "";
         System.out.print("Enter your gender: ");
-        gender = upperCaseWords(scanner.nextLine());
+        String gender = upperCaseWords(scanner.nextLine());
         check = false;
         while (!check){
             check = true;
@@ -400,9 +384,8 @@ public class MainControllers {
             }
         }
 
-        String idCard = "";
         System.out.print("Enter your idCard: ");
-        idCard = scanner.nextLine();
+        String idCard = scanner.nextLine();
         check = false;
         while (!check){
             check = true;
@@ -413,13 +396,11 @@ public class MainControllers {
             }
         }
 
-        String phoneNumber = "";
         System.out.print("Enter your phone number: ");
-        phoneNumber = scanner.nextLine();
+        String phoneNumber = scanner.nextLine();
 
-        String email= "";
         System.out.print("Enter your email: ");
-        email = scanner.nextLine();
+        String email = scanner.nextLine();
         check = false;
         while (!check){
             check = true;
