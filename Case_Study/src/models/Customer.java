@@ -99,17 +99,15 @@ public class Customer implements Comparable<Customer>{
 
     @Override
     public String toString() {
-        return "Customer{" +
-                "fullName='" + fullName + '\'' +
-                ", birthDay='" + birthDay + '\'' +
-                ", gender='" + gender + '\'' +
-                ", idCard='" + idCard + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", email='" + email + '\'' +
-                ", typeCustomer='" + typeCustomer + '\'' +
-                ", address='" + address + '\'' +
-                ", services=" + services +
-                '}';
+        return "Name of Customer: " + fullName + '\n' +
+                "Day of birth: " + birthDay + '\n' +
+                "Gender: " + gender + '\n' +
+                "ID card: " + idCard + '\n' +
+                "Phone Number: " + phoneNumber + '\n' +
+                "Email: " + email + '\n' +
+                "Type Customer: " + typeCustomer + '\n' +
+                "Address: " + address + '\n' +
+                "Services: " + services;
     }
 
     @Override

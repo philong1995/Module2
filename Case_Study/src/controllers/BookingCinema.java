@@ -44,24 +44,22 @@ public class BookingCinema {
     public static void bookTicket(){
         mainControllers.showInfoCustomer();
         System.out.print("Choose customer want booking: ");
-        String chooseCustomer = scanner.nextLine();
-        queue.add(MainControllers.customerList.get(Integer.parseInt(chooseCustomer) - 1));
+        String chooseCustomer =scanner.nextLine();
+
+        queue.add(MainControllers.customerList.get(Integer.parseInt(chooseCustomer)-1));
+
         System.out.println("Booking done!!!");
     }
     public static void showTicketBooked(){
-        System.out.print("Customer was booking: ");
+        System.out.println("Customer was booking: ");
         if (queue.isEmpty()){
             System.out.println("List is empty.");
         } else {
-            for (int i = 0; i < queue.size(); i++){
-                System.out.println(queue.peek());
+            int size = queue.size();
+            for (int i = 0; i < size; i++){
+                System.out.println(queue.poll());
             }
         }
         System.out.println("------------------------------------------------");
     }
 }
-
-//    public static void main(String[] args) {
-//        addTicket();
-//    }
-//}

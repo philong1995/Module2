@@ -21,7 +21,7 @@ public class MainControllers {
     private static final String HOUSE = "/Users/macbookpro/Desktop/Module2/Case_Study/src/data/House.csv";
     private static final String ROOM = "/Users/macbookpro/Desktop/Module2/Case_Study/src/data/Room.csv";
     private static final String BOOKING ="/Users/macbookpro/Desktop/Module2/Case_Study/src/data/Booking.csv";
-//    private static final String EMPLOYEE = "/Users/macbookpro/Desktop/Module2/Case_Study/src/data/Employee.csv";
+    private static final String EMPLOYEE = "/Users/macbookpro/Desktop/Module2/Case_Study/src/data/Employee.csv";
     private static final String COMMA = ", ";
 
     static List<Villa> villaList = new ArrayList<>();
@@ -29,7 +29,7 @@ public class MainControllers {
     static List<House> houseList = new ArrayList<>();
     static List<Service> serviceList = new ArrayList<>();
     static List<Customer> customerList = new ArrayList<>();
-//    static List<Employee> employeeList = new ArrayList<>();
+    static List<Employee> employeeList = new ArrayList<>();
 
     public void menu() {
         String yourChoose;
@@ -459,6 +459,7 @@ public class MainControllers {
     }
 
     void showInfoCustomer(){
+        readFileCustomer();
         List<String> lineList = ReadAndWrite.readFile(CUSTOMER);
         for(String element : lineList){
             System.out.println(element);
@@ -466,6 +467,7 @@ public class MainControllers {
     }
 
     void showEmployee(){
+        readFileEmployee();
         System.out.println(InfoEmployee.employeeMap);
     }
 
@@ -523,20 +525,25 @@ public class MainControllers {
         }
     }
 
-//    void addFileBooking(int iPositionCustomer) {
-//        String line = null;
-//        line = customerList.get(iPositionCustomer - 1).getFullName() + COMMA +
-//                customerList.get(iPositionCustomer - 1).getBirthDay() + COMMA +
-//                customerList.get(iPositionCustomer - 1).getGender() + COMMA +
-//                customerList.get(iPositionCustomer - 1).getIdCard() + COMMA +
-//                customerList.get(iPositionCustomer - 1).getPhoneNumber() + COMMA +
-//                customerList.get(iPositionCustomer - 1).getEmail() + COMMA +
-//                customerList.get(iPositionCustomer - 1).getTypeCustomer() + COMMA +
-//                customerList.get(iPositionCustomer - 1).getAddress() + COMMA +
-//                customerList.get(iPositionCustomer - 1).getServices().showInfo();
-//        ReadAndWrite.writeFile(BOOKING, line);
-//        menu();
-//    }
+    void readFileEmployee() {
+        employeeList = new ArrayList<>();
+        List<String> stringList = ReadAndWrite.readFile(EMPLOYEE);
+        for (String s : stringList) {
+            String[] split = s.split(",");
+            Employee employee = new Employee(split[0],split[1],Integer.parseInt(split[2]),split[3]);
+            employeeList.add(employee);
+        }
+    }
+
+    void readFileCustomer() {
+        customerList = new ArrayList<>();
+        List<String> stringList = ReadAndWrite.readFile(CUSTOMER);
+        for (String s : stringList) {
+            String[] split = s.split(",");
+            Customer customer = new Customer(split[0],split[1],split[2],split[3],split[4],split[5],split[6],split[7],null);
+            customerList.add(customer);
+        }
+    }
 
     void addFileBooking(int chooseCustomer){
         String line = customerList.get(chooseCustomer - 1).getFullName() + COMMA + customerList.get(chooseCustomer - 1).getBirthDay() +
