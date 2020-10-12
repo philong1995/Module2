@@ -59,8 +59,9 @@ public class BookingCinema {
         }
         System.out.println("------------------------------------------------");
     }
-
-    public static void main(String[] args) {
-        addTicket();
-    }
 }
+
+//    public static void main(String[] args) {
+//        addTicket();
+//    }
+//}

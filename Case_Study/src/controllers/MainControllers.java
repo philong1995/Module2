@@ -460,7 +460,9 @@ public class MainControllers {
 
     void showInfoCustomer(){
         List<String> lineList = ReadAndWrite.readFile(CUSTOMER);
-        System.out.println(lineList);
+        for(String element : lineList){
+            System.out.println(element);
+        }
     }
 
     void showEmployee(){
@@ -521,170 +523,119 @@ public class MainControllers {
         }
     }
 
-    void addFileBooking(int iPositionCustomer) {
-        int numberInput = Integer.parseInt(scanner.nextLine());
-        customerList.get(iPositionCustomer - 1).setServices(villaList.get(numberInput - 1));
-        String line = null;
-        line = customerList.get(iPositionCustomer - 1).getFullName() + COMMA +
-                customerList.get(iPositionCustomer - 1).getBirthDay() + COMMA +
-                customerList.get(iPositionCustomer - 1).getGender() + COMMA +
-                customerList.get(iPositionCustomer - 1).getIdCard() + COMMA +
-                customerList.get(iPositionCustomer - 1).getPhoneNumber() + COMMA +
-                customerList.get(iPositionCustomer - 1).getEmail() + COMMA +
-                customerList.get(iPositionCustomer - 1).getTypeCustomer() + COMMA +
-                customerList.get(iPositionCustomer - 1).getAddress() + COMMA +
-                customerList.get(iPositionCustomer - 1).getServices();
-        ReadAndWrite.writeFile(BOOKING, line);
-        menu();
+//    void addFileBooking(int iPositionCustomer) {
+//        String line = null;
+//        line = customerList.get(iPositionCustomer - 1).getFullName() + COMMA +
+//                customerList.get(iPositionCustomer - 1).getBirthDay() + COMMA +
+//                customerList.get(iPositionCustomer - 1).getGender() + COMMA +
+//                customerList.get(iPositionCustomer - 1).getIdCard() + COMMA +
+//                customerList.get(iPositionCustomer - 1).getPhoneNumber() + COMMA +
+//                customerList.get(iPositionCustomer - 1).getEmail() + COMMA +
+//                customerList.get(iPositionCustomer - 1).getTypeCustomer() + COMMA +
+//                customerList.get(iPositionCustomer - 1).getAddress() + COMMA +
+//                customerList.get(iPositionCustomer - 1).getServices().showInfo();
+//        ReadAndWrite.writeFile(BOOKING, line);
+//        menu();
+//    }
+
+    void addFileBooking(int chooseCustomer){
+        String line = customerList.get(chooseCustomer - 1).getFullName() + COMMA + customerList.get(chooseCustomer - 1).getBirthDay() +
+                COMMA + customerList.get(chooseCustomer - 1).getGender() + COMMA + customerList.get(chooseCustomer - 1).getIdCard() +
+                COMMA + customerList.get(chooseCustomer - 1).getPhoneNumber() + COMMA + customerList.get(chooseCustomer - 1).getEmail() +
+                COMMA + customerList.get(chooseCustomer - 1).getTypeCustomer() + COMMA + customerList.get(chooseCustomer - 1).getAddress() +
+                COMMA + customerList.get(chooseCustomer - 1).getServices().showInfo();
+        ReadAndWrite.writeFile(BOOKING,line);
     }
 
-    void addNewBooking() {
+    void addNewBooking(){
         showInfoCustomer();
-        String choose;
-        System.out.println("Enter customer want booking: ");
-        int iPositionCustomer = Integer.parseInt(scanner.nextLine());
-        do {
-            System.out.println("-------------------------------------");
-            System.out.println(
-                            "1.\tBooking Villa\n" +
-                            "2.\tBooking House\n" +
-                            "3.\tBooking Room\n" +
-                            "4.\tBack Menu\n" +
-                            "5.\tExit");
-            System.out.print("Enter your choose: ");
-            choose = scanner.nextLine();
-            switch (choose) {
-                case "1":
-                    showAllVilla();
-                    System.out.print("Choose villa want rent: ");
-                    addFileBooking(iPositionCustomer);
-                    break;
-                case "2":
-//                    showAllHouse();
-//                    System.out.print("Choose House want rent: ");
-//                    addFileBooking(iPositionCustomer);
-                    break;
-                case "3":
-//                    showAllRoom();
-//                    System.out.print("Choose Room want rent: ");
-//                    addFileBooking(iPositionCustomer);
-                    break;
-                case "4":
-                    menu();
-                    break;
-                case "5":
-                    System.exit(0);
-                    break;
-                default:
-                    System.out.print("Your choose not exist.Please choose again!!!");
-            }
-        } while (Integer.parseInt(choose) > 0 && Integer.parseInt(choose) <= 5);
+        System.out.print("Choose customer want booking: ");
+        String chooseCustomer = scanner.nextLine();
+        System.out.println("1. Booking Villa. \n" +
+                "2. Booking House. \n" +
+                "3. Booking Room. \n" +
+                "4. Back to menu.");
+        System.out.print("Choose service want booking: ");
+        int chooseService = scanner.nextInt();
+        scanner.nextLine();
+        switch (chooseService){
+            case 1:
+                showAllVilla();
+                System.out.print("Enter a Villa want booking: ");
+                String chooseVilla = scanner.nextLine();
+                customerList.get(Integer.parseInt(chooseCustomer) - 1).setServices(villaList.get(Integer.parseInt(chooseVilla) - 1));
+                addFileBooking(Integer.parseInt(chooseCustomer));
+                System.out.println("Booking Done!!!");
+                menu();
+                break;
+            case 2:
+                showAllRoom();
+                menu();
+                break;
+            case 3:
+                showAllRoom();
+                System.out.println("Enter a Villa want booking: ");
+                String chooseRoom = scanner.nextLine();
+                customerList.get(Integer.parseInt(chooseCustomer) - 1).setServices(roomList.get(Integer.parseInt(chooseRoom) - 1));
+                addFileBooking(Integer.parseInt(chooseCustomer));
+                System.out.println("Booking Done!!!");
+                menu();
+                break;
+            case 4:
+                menu();
+                break;
+            default:
+                System.out.println("Enter choose again!!!");
+                addNewBooking();
+        }
     }
 
-//    void addNewBooking(){
-//            getchoiceCustomer();
-//            System.out.println("----------------------------------------");
-//            System.out.println("1. Booking Villa. ");
-//            System.out.println("2. Booking House. ");
-//            System.out.println("3. Booking Room.");
-//            System.out.println("4. Back.");
-//            System.out.println("5. Exit.");
-//            System.out.println("----------------------------------------");
-//            System.out.print("Enter choice your: ");
-//            String choice = scanner.nextLine();
-//        switch (choice) {
-//            case "1":
-//                choiceVilla();
-//                ReadAndWrite.writeFile(BOOKING, customerList.get(Integer.parseInt(choiceCustomer) - 1).toString());
-//                break;
-//            case "2":
-//                choiceHouse();
-//                ReadAndWrite.writeFile(BOOKING, customerList.get(Integer.parseInt(choiceCustomer) - 1).toString());
-//                break;
-//            case "3":
-//                choiceRoom();
-//                ReadAndWrite.writeFile(BOOKING, customerList.get(Integer.parseInt(choiceCustomer) - 1).toString());
-//                break;
-//            case "5":
-//                System.exit(0);
-//            default:
-//                System.out.println("Your choose not exist.Please choose again.");
-//                break;
-//        }
-//    }
-//
-//    void getchoiceCustomer() {
+//    void addNewBooking() {
 //        showInfoCustomer();
-//        boolean flag;
+//        System.out.print("Enter customer want booking: ");
+//        String iPositionCustomer = scanner.nextLine();
+//        String choose;
 //        do {
-//            flag = true;
-//            try {
-//                System.out.print("Enter choice the Customer: ");
-//                choiceCustomer = scanner.nextLine();
-//            } catch (IndexOutOfBoundsException | NumberFormatException e) {
-//                System.err.println("Error. Enter again.");
-//                System.out.println();
-//                flag = false;
+//            System.out.println("-------------------------------------");
+//            System.out.println(
+//                            "1.\tBooking Villa\n" +
+//                            "2.\tBooking House\n" +
+//                            "3.\tBooking Room\n" +
+//                            "4.\tBack Menu\n" +
+//                            "5.\tExit");
+//            System.out.print("Enter your choose: ");
+//            choose = scanner.nextLine();
+//            switch (choose) {
+//                case "1":
+//                    showAllVilla();
+//                    System.out.print("Choose Villa you want: ");
+//                String chooseVilla = scanner.nextLine();
+//                customerList.get(Integer.parseInt(iPositionCustomer) - 1).setServices(villaList.get(Integer.parseInt(chooseVilla) - 1));
+//                addFileBooking(Integer.parseInt(iPositionCustomer));
+//                System.out.println("Done!!!");
+//                    break;
+//                case "2":
+////                    showAllHouse();
+////                    System.out.print("Choose House want rent: ");
+////                    addFileBooking(iPositionCustomer);
+//                    break;
+//                case "3":
+////                    showAllRoom();
+////                    System.out.print("Choose Room want rent: ");
+////                    addFileBooking(iPositionCustomer);
+//                    break;
+//                case "4":
+//                    menu();
+//                    break;
+//                case "5":
+//                    System.exit(0);
+//                    break;
+//                default:
+//                    System.out.print("Your choose not exist.Please choose again!!!");
 //            }
-//        } while (!flag);
+//        } while (Integer.parseInt(choose) > 0 && Integer.parseInt(choose) <= 5);
 //    }
-//
-//    void choiceVilla() {
-//        boolean flag;
-//        showAllVilla();
-//        String choiceVilla = null;
-//        do {
-//            flag = true;
-//            try {
-//                System.out.print("Enter choice Villa: ");
-//                choiceVilla = scanner.nextLine();
-////                RegularException.exceptionIndexVilla(choiceVilla);
-//            } catch (IndexOutOfBoundsException | NumberFormatException e) {
-//                System.err.println(e.getMessage());
-//                System.out.println();
-//                flag = false;
-//            }
-//        } while (!flag);
-//        customerList.get(Integer.parseInt(choiceCustomer) - 1).setServices(villaList.get(Integer.parseInt(choiceVilla) - 1));
-//    }
-//
-//    void choiceHouse() {
-//        boolean flag;
-//        showAllHouse();
-//        String choiceHouse = null;
-//        do {
-//            flag = true;
-//            try {
-//                System.out.print("Enter choice House: ");
-//                choiceHouse = scanner.nextLine();
-////                RegularException.exceptionIndexHouse(choiceHouse);
-//            } catch (IndexOutOfBoundsException | NumberFormatException e) {
-//                System.err.println(e.getMessage());
-//                System.out.println();
-//                flag = false;
-//            }
-//        } while (!flag);
-//        customerList.get(Integer.parseInt(choiceCustomer) - 1).setServices(houseList.get(Integer.parseInt(choiceHouse) - 1));
-//    }
-//
-//    void choiceRoom() {
-//        boolean flag;
-//        showAllRoom();
-//        String choiceRoom = null;
-//        do {
-//            flag = true;
-//            try {
-//                System.out.print("Enter choice Room: ");
-//                choiceRoom = scanner.nextLine();
-////                RegularException.exceptionIndexRoom(choiceRoom);
-//            } catch (IndexOutOfBoundsException | NumberFormatException e) {
-//                System.err.println(e.getMessage());
-//                System.out.println();
-//                flag = false;
-//            }
-//        } while (!flag);
-//        customerList.get(Integer.parseInt(choiceCustomer) - 1).setServices(roomList.get(Integer.parseInt(choiceRoom) - 1));
-//    }
+
 
     boolean checkIDService(String id){
         Pattern pattern = Pattern.compile("(SV)(VL|HO|RO)(-)[0-9]{4}");
