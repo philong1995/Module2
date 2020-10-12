@@ -2,35 +2,36 @@ package controllers;
 
 import models.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class MainControllers {
 
     public static Scanner scanner = new Scanner(System.in);
-    private static String id;
-    private static String nameService;
-    private static String useArea;
-    private static String payService;
-    private static String amountPeople;
-    private static String typeService;
+    private String id;
+    private String nameService;
+    private String useArea;
+    private String payService;
+    private String amountPeople;
+    private String typeService;
 
     private static final String CUSTOMER = "/Users/macbookpro/Desktop/Module2/Case_Study/src/data/Customer.csv";
     private static final String VILLA = "/Users/macbookpro/Desktop/Module2/Case_Study/src/data/Villa.csv";
     private static final String HOUSE = "/Users/macbookpro/Desktop/Module2/Case_Study/src/data/House.csv";
     private static final String ROOM = "/Users/macbookpro/Desktop/Module2/Case_Study/src/data/Room.csv";
-    public static final String COMMA = ", ";
+    private static final String BOOKING ="/Users/macbookpro/Desktop/Module2/Case_Study/src/data/Booking.csv";
+//    private static final String EMPLOYEE = "/Users/macbookpro/Desktop/Module2/Case_Study/src/data/Employee.csv";
+    private static final String COMMA = ", ";
 
     static List<Villa> villaList = new ArrayList<>();
     static List<Room> roomList = new ArrayList<>();
     static List<House> houseList = new ArrayList<>();
     static List<Service> serviceList = new ArrayList<>();
     static List<Customer> customerList = new ArrayList<>();
+//    static List<Employee> employeeList = new ArrayList<>();
 
-    public static void menu() {
+    public void menu() {
         String yourChoose;
         do {
         System.out.println("----------------------------");
@@ -40,7 +41,9 @@ public class MainControllers {
                 "4.Show Information of Customer. \n" +
                 "5.Add New Booking. \n" +
                 "6.Show Information of Employee. \n" +
-                "7.Exit.");
+                "7.Booking Cinema. \n" +
+                "8.Find Employee. \n" +
+                "9.Exit.");
         System.out.println("----------------------------");
         System.out.print("Enter your choose: ");
         yourChoose = scanner.nextLine();
@@ -58,23 +61,29 @@ public class MainControllers {
                     showInfoCustomer();
                     break;
                 case 5:
-
+                    addNewBooking();
                     break;
                 case 6:
-
+                    showEmployee();
                     break;
                 case 7:
+                    BookingCinema.addTicket();
+                    break;
+                case 8:
+                    FindEmployee.findProfileByName();
+                    break;
+                case 9:
                     System.out.println("Goodbye!!!");
                     System.exit(0);
                 default:
                     System.out.println("Your choose not exist.Please choose again.");
                     break;
             }
-        }while (Integer.parseInt(yourChoose) < 8 || Integer.parseInt(yourChoose) > 0);
+        }while (Integer.parseInt(yourChoose) < 10 || Integer.parseInt(yourChoose) > 0);
     }
 
 //      Thêm vào dịch vụ mới.
-    static void addNewServies() {
+    void addNewServies() {
         String yourChoose;
         do {
             System.out.println("1.Add New Villa. \n" +
@@ -105,7 +114,7 @@ public class MainControllers {
     }
 
 //  Thêm vào Villa
-    static void addNewVilla(){
+    void addNewVilla(){
         addService();
         System.out.print("Enter standard Villa: ");
         String standardRoom = scanner.nextLine();
@@ -163,7 +172,7 @@ public class MainControllers {
     }
 
 // Thêm vào House
-    static void addNewHouse(){
+    void addNewHouse(){
         addService();
         System.out.print("Enter standard House: ");
         String standardRoom = scanner.nextLine();
@@ -205,7 +214,7 @@ public class MainControllers {
     }
 
 // Thêm vào room
-    static void addNewRoom(){
+    void addNewRoom(){
         addService();
         System.out.print("Enter free service(eat, drink): ");
         String freeService = scanner.nextLine();
@@ -223,7 +232,7 @@ public class MainControllers {
     }
 
 // Thêm vào dịch vụ
-    static void addService(){
+    void addService(){
         System.out.print("Enter ID service: ");
         id = scanner.nextLine();
         boolean check = false;
@@ -310,7 +319,7 @@ public class MainControllers {
         }
     }
 
-    static void showService() {
+    void showService() {
         String yourchoose;
         do {
             System.out.println("1.Show all Villa. \n" +
@@ -334,6 +343,15 @@ public class MainControllers {
                 case 3:
                     showAllRoom();
                     break;
+                case 4:
+                    showVillaNotDuplicate();
+                    break;
+                case 5:
+                    showHouseNotDuplicate();
+                    break;
+                case 6:
+                    showRoomNotDuplicate();
+                    break;
                 case 7:
                     menu();
                     break;
@@ -347,7 +365,7 @@ public class MainControllers {
         }while (Integer.parseInt(yourchoose) < 9 || Integer.parseInt(yourchoose) > 0);
     }
 
-    static void addNewCustomer(){
+    void addNewCustomer(){
         System.out.print("Enter your name: ");
         String nameCustomer = scanner.nextLine();
         boolean check = false;
@@ -411,94 +429,318 @@ public class MainControllers {
             }
         }
 
-        System.out.print("Enter your type service: ");
-        String typeCustomer = scanner.nextLine();
+        System.out.print("Enter your type customer: ");
+        String typeCustomer = upperCaseWords(scanner.nextLine());
+        check = false;
+        while (!check){
+            check = true;
+            if (!checkTypeCustomer(typeCustomer)){
+                System.err.print("Enter again ( Diamond, Platinum, Gold, Silver, Member): ");
+                typeCustomer = upperCaseWords(scanner.nextLine());
+                check = false;
+            }
+        }
 
         System.out.print("Enter your address: ");
-        String address = scanner.nextLine();
+        String address = upperCaseWords(scanner.nextLine());
 
-        Customer customer = new Customer(nameCustomer, birthDay, gender, idCard, phoneNumber, email, typeCustomer, address);
+        Service service = null;
+//        System.out.print("Enter your service: ");
+//        service = upperCaseWords(scanner.nextLine());
+
+        Customer customer = new Customer(nameCustomer, birthDay, gender, idCard, phoneNumber, email, typeCustomer, address, service);
         customerList.add(customer);
 
         String line = null;
         for (Customer customers : customerList){
-            line = customers.getFullName() + COMMA + customers.getBirthDay() + COMMA + customers.getGender() + COMMA + customers.getIdCard() + COMMA + customers.getPhoneNumber() + COMMA + customers.getEmail() + COMMA + customers.getTypeCustomer() + COMMA + customers.getAddress();
+            line = customers.getFullName() + COMMA + customers.getBirthDay() + COMMA + customers.getGender() + COMMA + customers.getIdCard() + COMMA + customers.getPhoneNumber() + COMMA + customers.getEmail() + COMMA + customers.getTypeCustomer() + COMMA + customers.getAddress() + COMMA + customer.getServices();
             ReadAndWrite.writeFile(CUSTOMER,line);
         }
     }
 
-    static void showInfoCustomer(){
+    void showInfoCustomer(){
         List<String> lineList = ReadAndWrite.readFile(CUSTOMER);
         System.out.println(lineList);
     }
 
+    void showEmployee(){
+        System.out.println(InfoEmployee.employeeMap);
+    }
+
 //    Hiển thị villa
-    static void showAllVilla(){
+    void showAllVilla(){
         List<String> lineList = ReadAndWrite.readFile(VILLA);
         System.out.println(lineList);
     }
 
+    void showVillaNotDuplicate() {
+        System.out.println(ReadAndWrite.readFile(VILLA));
+        if (villaList.isEmpty()) {
+            System.out.println("Villa File Empty!!!");
+        }
+        int index = 1;
+        Set<Villa> villasSet = new TreeSet<>(villaList);
+        for (Villa villa : villasSet) {
+            System.out.println(index++ + " " + villa.showInfo());
+        }
+    }
+
 //    Hiển thị house
-    static void showAllHouse(){
+    void showAllHouse(){
         List<String> lineList = ReadAndWrite.readFile(HOUSE);
         System.out.println(lineList);
     }
 
+    void showHouseNotDuplicate() {
+        System.out.println(ReadAndWrite.readFile(HOUSE));
+        if (houseList.isEmpty()) {
+            System.out.println("House File Empty!!!");
+        }
+        int index = 1;
+        Set<House> housesSet = new TreeSet<>(houseList);
+        for (House house : housesSet) {
+            System.out.println(index++ + " " + house.showInfo());
+        }
+    }
+
 //    Hiển thị house
-    static void showAllRoom(){
+    void showAllRoom(){
         List<String> lineList = ReadAndWrite.readFile(ROOM);
         System.out.println(lineList);
     }
 
-    static boolean checkIDService(String id){
+    void showRoomNotDuplicate() {
+        System.out.println(ReadAndWrite.readFile(ROOM));
+        if (roomList.isEmpty()) {
+            System.out.println("Room File Empty!!!");
+        }
+        int index = 1;
+        Set<Room> roomsSet = new TreeSet<>(roomList);
+        for (Room room : roomsSet) {
+            System.out.println(index++ + " " + room.showInfo());
+        }
+    }
+
+    void addFileBooking(int iPositionCustomer) {
+        int numberInput = Integer.parseInt(scanner.nextLine());
+        customerList.get(iPositionCustomer - 1).setServices(villaList.get(numberInput - 1));
+        String line = null;
+        line = customerList.get(iPositionCustomer - 1).getFullName() + COMMA +
+                customerList.get(iPositionCustomer - 1).getBirthDay() + COMMA +
+                customerList.get(iPositionCustomer - 1).getGender() + COMMA +
+                customerList.get(iPositionCustomer - 1).getIdCard() + COMMA +
+                customerList.get(iPositionCustomer - 1).getPhoneNumber() + COMMA +
+                customerList.get(iPositionCustomer - 1).getEmail() + COMMA +
+                customerList.get(iPositionCustomer - 1).getTypeCustomer() + COMMA +
+                customerList.get(iPositionCustomer - 1).getAddress() + COMMA +
+                customerList.get(iPositionCustomer - 1).getServices();
+        ReadAndWrite.writeFile(BOOKING, line);
+        menu();
+    }
+
+    void addNewBooking() {
+        showInfoCustomer();
+        String choose;
+        System.out.println("Enter customer want booking: ");
+        int iPositionCustomer = Integer.parseInt(scanner.nextLine());
+        do {
+            System.out.println("-------------------------------------");
+            System.out.println(
+                            "1.\tBooking Villa\n" +
+                            "2.\tBooking House\n" +
+                            "3.\tBooking Room\n" +
+                            "4.\tBack Menu\n" +
+                            "5.\tExit");
+            System.out.print("Enter your choose: ");
+            choose = scanner.nextLine();
+            switch (choose) {
+                case "1":
+                    showAllVilla();
+                    System.out.print("Choose villa want rent: ");
+                    addFileBooking(iPositionCustomer);
+                    break;
+                case "2":
+//                    showAllHouse();
+//                    System.out.print("Choose House want rent: ");
+//                    addFileBooking(iPositionCustomer);
+                    break;
+                case "3":
+//                    showAllRoom();
+//                    System.out.print("Choose Room want rent: ");
+//                    addFileBooking(iPositionCustomer);
+                    break;
+                case "4":
+                    menu();
+                    break;
+                case "5":
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.print("Your choose not exist.Please choose again!!!");
+            }
+        } while (Integer.parseInt(choose) > 0 && Integer.parseInt(choose) <= 5);
+    }
+
+//    void addNewBooking(){
+//            getchoiceCustomer();
+//            System.out.println("----------------------------------------");
+//            System.out.println("1. Booking Villa. ");
+//            System.out.println("2. Booking House. ");
+//            System.out.println("3. Booking Room.");
+//            System.out.println("4. Back.");
+//            System.out.println("5. Exit.");
+//            System.out.println("----------------------------------------");
+//            System.out.print("Enter choice your: ");
+//            String choice = scanner.nextLine();
+//        switch (choice) {
+//            case "1":
+//                choiceVilla();
+//                ReadAndWrite.writeFile(BOOKING, customerList.get(Integer.parseInt(choiceCustomer) - 1).toString());
+//                break;
+//            case "2":
+//                choiceHouse();
+//                ReadAndWrite.writeFile(BOOKING, customerList.get(Integer.parseInt(choiceCustomer) - 1).toString());
+//                break;
+//            case "3":
+//                choiceRoom();
+//                ReadAndWrite.writeFile(BOOKING, customerList.get(Integer.parseInt(choiceCustomer) - 1).toString());
+//                break;
+//            case "5":
+//                System.exit(0);
+//            default:
+//                System.out.println("Your choose not exist.Please choose again.");
+//                break;
+//        }
+//    }
+//
+//    void getchoiceCustomer() {
+//        showInfoCustomer();
+//        boolean flag;
+//        do {
+//            flag = true;
+//            try {
+//                System.out.print("Enter choice the Customer: ");
+//                choiceCustomer = scanner.nextLine();
+//            } catch (IndexOutOfBoundsException | NumberFormatException e) {
+//                System.err.println("Error. Enter again.");
+//                System.out.println();
+//                flag = false;
+//            }
+//        } while (!flag);
+//    }
+//
+//    void choiceVilla() {
+//        boolean flag;
+//        showAllVilla();
+//        String choiceVilla = null;
+//        do {
+//            flag = true;
+//            try {
+//                System.out.print("Enter choice Villa: ");
+//                choiceVilla = scanner.nextLine();
+////                RegularException.exceptionIndexVilla(choiceVilla);
+//            } catch (IndexOutOfBoundsException | NumberFormatException e) {
+//                System.err.println(e.getMessage());
+//                System.out.println();
+//                flag = false;
+//            }
+//        } while (!flag);
+//        customerList.get(Integer.parseInt(choiceCustomer) - 1).setServices(villaList.get(Integer.parseInt(choiceVilla) - 1));
+//    }
+//
+//    void choiceHouse() {
+//        boolean flag;
+//        showAllHouse();
+//        String choiceHouse = null;
+//        do {
+//            flag = true;
+//            try {
+//                System.out.print("Enter choice House: ");
+//                choiceHouse = scanner.nextLine();
+////                RegularException.exceptionIndexHouse(choiceHouse);
+//            } catch (IndexOutOfBoundsException | NumberFormatException e) {
+//                System.err.println(e.getMessage());
+//                System.out.println();
+//                flag = false;
+//            }
+//        } while (!flag);
+//        customerList.get(Integer.parseInt(choiceCustomer) - 1).setServices(houseList.get(Integer.parseInt(choiceHouse) - 1));
+//    }
+//
+//    void choiceRoom() {
+//        boolean flag;
+//        showAllRoom();
+//        String choiceRoom = null;
+//        do {
+//            flag = true;
+//            try {
+//                System.out.print("Enter choice Room: ");
+//                choiceRoom = scanner.nextLine();
+////                RegularException.exceptionIndexRoom(choiceRoom);
+//            } catch (IndexOutOfBoundsException | NumberFormatException e) {
+//                System.err.println(e.getMessage());
+//                System.out.println();
+//                flag = false;
+//            }
+//        } while (!flag);
+//        customerList.get(Integer.parseInt(choiceCustomer) - 1).setServices(roomList.get(Integer.parseInt(choiceRoom) - 1));
+//    }
+
+    boolean checkIDService(String id){
         Pattern pattern = Pattern.compile("(SV)(VL|HO|RO)(-)[0-9]{4}");
         Matcher matcher = pattern.matcher(id);
         return matcher.matches();
     }
 
-    static boolean checkNameService(String name){
+    boolean checkNameService(String name){
         Pattern pattern = Pattern.compile("[A-Z][a-z]+(\\s[A-Z][a-z]+)*");
         Matcher matcher = pattern.matcher(name);
         return matcher.matches();
     }
 
-    static boolean checkNumber(String number){
+    boolean checkNumber(String number){
         Pattern pattern = Pattern.compile("[0-9]+[.,]?[0-9]+");
         Matcher matcher = pattern.matcher(number);
         return matcher.matches();
     }
 
-    static boolean checkNumberFloor(String numberFloor){
+    boolean checkNumberFloor(String numberFloor){
         Pattern pattern = Pattern.compile("[0-9]+");
         Matcher matcher = pattern.matcher(numberFloor);
         return matcher.matches();
     }
 
-    static boolean checkEmail(String email){
+    boolean checkEmail(String email){
         Pattern pattern = Pattern.compile("[A-za-z0-9]*([.]?\\w*)*(@)[a-z]*(.)[a-z]*");
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
 
-    static boolean checkGender(String gender){
+    boolean checkGender(String gender){
         Pattern pattern = Pattern.compile("(Female)|(Male)|(Unknow)");
         Matcher matcher = pattern.matcher(gender);
         return matcher.matches();
     }
 
-    static boolean checkID(String id){
+    boolean checkID(String id){
         Pattern pattern = Pattern.compile("[0-9]{3}( )[0-9]{3}( )[0-9]{3}");
         Matcher matcher = pattern.matcher(id);
         return matcher.matches();
     }
 
-    static boolean checkBirth(String birth){
+    boolean checkBirth(String birth){
         Pattern pattern = Pattern.compile("([0][1-9]|[12][0-9]|[3][01])/([0][1-9]|[1][012])/([2][0][0]([012])|[1][9]\\d{2})");
         Matcher matcher = pattern.matcher(birth);
         return matcher.matches();
     }
 
-    public static String upperCaseWords(String line) {
+    boolean checkTypeCustomer(String type){
+        Pattern pattern = Pattern.compile("(Diamond)|(Platinum)|(Gold)|(Silver)|(Member)");
+        Matcher matcher = pattern.matcher(type);
+        return matcher.matches();
+    }
+
+    public String upperCaseWords(String line) {
         line = line.trim().toLowerCase();
         String[] data = line.split("\\s");
         line = "";
@@ -512,7 +754,10 @@ public class MainControllers {
         return line.trim();
     }
 
+
+
     public static void main(String[] args) {
-        menu();
+        MainControllers mainControllers = new MainControllers();
+        mainControllers.menu();
     }
 }

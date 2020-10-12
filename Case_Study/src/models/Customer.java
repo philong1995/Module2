@@ -1,6 +1,6 @@
 package models;
 
-public class Customer extends Service {
+public class Customer implements Comparable<Customer>{
     private String fullName;
     private String birthDay;
     private String gender;
@@ -9,10 +9,11 @@ public class Customer extends Service {
     private String email;
     private String typeCustomer;
     private String address;
+    private Service services;
 
     public Customer(){}
 
-    public Customer(String fullName, String birthDay, String gender, String idCard, String phoneNumber, String email, String typeCustomer, String address) {
+    public Customer(String fullName, String birthDay, String gender, String idCard, String phoneNumber, String email, String typeCustomer, String address, Service services) {
         this.fullName = fullName;
         this.birthDay = birthDay;
         this.gender = gender;
@@ -21,18 +22,7 @@ public class Customer extends Service {
         this.email = email;
         this.typeCustomer = typeCustomer;
         this.address = address;
-    }
-
-    public Customer(String idService, String nameService, int areaService, int payService, int amountPeople, String typeService, String fullName, String birthDay, String gender, String idCard, String phoneNumber, String email, String typeCustomer, String address) {
-        super(idService, nameService, areaService, payService, amountPeople, typeService);
-        this.fullName = fullName;
-        this.birthDay = birthDay;
-        this.gender = gender;
-        this.idCard = idCard;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.typeCustomer = typeCustomer;
-        this.address = address;
+        this.services = services;
     }
 
     public String getFullName() {
@@ -99,8 +89,37 @@ public class Customer extends Service {
         this.address = address;
     }
 
+    public Service getServices() {
+        return services;
+    }
+
+    public void setServices(Service services) {
+        this.services = services;
+    }
+
     @Override
-    public String showInfo() {
-        return null;
+    public String toString() {
+        return "Customer{" +
+                "fullName='" + fullName + '\'' +
+                ", birthDay='" + birthDay + '\'' +
+                ", gender='" + gender + '\'' +
+                ", idCard='" + idCard + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                ", typeCustomer='" + typeCustomer + '\'' +
+                ", address='" + address + '\'' +
+                ", services=" + services +
+                '}';
+    }
+
+    @Override
+    public int compareTo(Customer second) {
+        int result = this.fullName.compareTo(second.fullName);
+        if (result == 0) {
+            int yearCustomerFist = Integer.parseInt(this.birthDay.split("/")[2]);
+            int yearCustomerSecond = Integer.parseInt(this.birthDay.split("/")[2]);
+            return yearCustomerFist - yearCustomerSecond;
+        }
+        return result;
     }
 }
