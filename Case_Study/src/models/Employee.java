@@ -3,12 +3,12 @@ package models;
 public class Employee {
     private String idEmployee;
     private String nameEmployee;
-    private int ageEmployee;
+    private String ageEmployee;
     private String addressEmployee;
 
     public Employee(){}
 
-    public Employee(String idEmployee, String nameEmployee, int ageEmployee, String addressEmployee) {
+    public Employee(String idEmployee, String nameEmployee, String ageEmployee, String addressEmployee) {
         this.idEmployee = idEmployee;
         this.nameEmployee = nameEmployee;
         this.ageEmployee = ageEmployee;
@@ -31,11 +31,11 @@ public class Employee {
         this.nameEmployee = nameEmployee;
     }
 
-    public int getAgeEmployee() {
+    public String getAgeEmployee() {
         return ageEmployee;
     }
 
-    public void setAgeEmployee(int ageEmployee) {
+    public void setAgeEmployee(String ageEmployee) {
         this.ageEmployee = ageEmployee;
     }
 

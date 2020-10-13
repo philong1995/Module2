@@ -70,7 +70,7 @@ public class MainControllers {
                     BookingCinema.addTicket();
                     break;
                 case 8:
-                    FindEmployee.findProfileByName();
+                    FindEmployee.findNameEmployee();
                     break;
                 case 9:
                     System.out.println("Goodbye!!!");
@@ -159,7 +159,7 @@ public class MainControllers {
             }
         }
 
-        Villa villa = new Villa(id, nameService, Integer.parseInt(useArea), Integer.parseInt(payService), Integer.parseInt(amountPeople), typeService, standardRoom, descriptionOfOtherAmenities, Float.parseFloat(swimmingPoolArea), Integer.parseInt(numberOfFloors));
+        Villa villa = new Villa(id, nameService, Integer.parseInt(useArea), Integer.parseInt(payService), Integer.parseInt(amountPeople), typeService, standardRoom, descriptionOfOtherAmenities, swimmingPoolArea, numberOfFloors);
         villaList.add(villa);
         serviceList.add(villa);
 
@@ -445,8 +445,6 @@ public class MainControllers {
         String address = upperCaseWords(scanner.nextLine());
 
         Service service = null;
-//        System.out.print("Enter your service: ");
-//        service = upperCaseWords(scanner.nextLine());
 
         Customer customer = new Customer(nameCustomer, birthDay, gender, idCard, phoneNumber, email, typeCustomer, address, service);
         customerList.add(customer);
@@ -473,13 +471,14 @@ public class MainControllers {
 
 //    Hiển thị villa
     void showAllVilla(){
+        readFileVilla();
         List<String> lineList = ReadAndWrite.readFile(VILLA);
         System.out.println(lineList);
     }
 
     void showVillaNotDuplicate() {
         System.out.println(ReadAndWrite.readFile(VILLA));
-        if (villaList.isEmpty()) {
+        if (!villaList.isEmpty()) {
             System.out.println("Villa File Empty!!!");
         }
         int index = 1;
@@ -497,7 +496,7 @@ public class MainControllers {
 
     void showHouseNotDuplicate() {
         System.out.println(ReadAndWrite.readFile(HOUSE));
-        if (houseList.isEmpty()) {
+        if (!houseList.isEmpty()) {
             System.out.println("House File Empty!!!");
         }
         int index = 1;
@@ -515,7 +514,7 @@ public class MainControllers {
 
     void showRoomNotDuplicate() {
         System.out.println(ReadAndWrite.readFile(ROOM));
-        if (roomList.isEmpty()) {
+        if (!roomList.isEmpty()) {
             System.out.println("Room File Empty!!!");
         }
         int index = 1;
@@ -530,7 +529,7 @@ public class MainControllers {
         List<String> stringList = ReadAndWrite.readFile(EMPLOYEE);
         for (String s : stringList) {
             String[] split = s.split(",");
-            Employee employee = new Employee(split[0],split[1],Integer.parseInt(split[2]),split[3]);
+            Employee employee = new Employee(split[0],split[1],split[2],split[3]);
             employeeList.add(employee);
         }
     }
@@ -542,6 +541,18 @@ public class MainControllers {
             String[] split = s.split(",");
             Customer customer = new Customer(split[0],split[1],split[2],split[3],split[4],split[5],split[6],split[7],null);
             customerList.add(customer);
+        }
+    }
+
+    void readFileVilla() {
+        List<String> listLine = ReadAndWrite.readFile(VILLA);
+        for (String line : listLine) {
+            String[] split = line.split(",");
+            if (split.length != 1) {
+                Villa villa = new Villa(split[0], split[1], Integer.parseInt(split[2]), Integer.parseInt(split[3]),
+                        Integer.parseInt(split[4]), split[5], split[6], split[7], split[8], split[9]);
+                villaList.add(villa);
+            }
         }
     }
 

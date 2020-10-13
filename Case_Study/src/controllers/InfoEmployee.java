@@ -13,16 +13,16 @@ public class InfoEmployee {
     static Map<String,Employee> employeeMap = new HashMap<>();
     public static void main(String[] args) {
         List<Employee> employeeList = new ArrayList<>();
-        Employee employee1 = new Employee("001","Nguyen Van Mot",22,"Da Nang");
-        Employee employee2 = new Employee("002","Nguyen Thi Hai",21,"Quang Nam");
-        Employee employee3 = new Employee("003","Nguyen Van Ba",23,"Nghe An");
-        Employee employee4 = new Employee("004","Nguyen Thi Bon",24,"Quang Ngai");
-        Employee employee5 = new Employee("005","Nguyen Van Nam",22,"Ha Tinh");
-        Employee employee6 = new Employee("006","Nguyen Thi Sau",25,"Quang Tri");
-        Employee employee7 = new Employee("007","Nguyen Van Bay",20,"Quang Binh");
-        Employee employee8 = new Employee("008","Nguyen Thi Tam",21,"Quang Nam");
-        Employee employee9 = new Employee("009","Nguyen Van Chin",23,"Da Nang");
-        Employee employee10 = new Employee("010","Nguyen Thi Muoi",22,"Hue");
+        Employee employee1 = new Employee("001","Nguyen Van Mot","22","Da Nang");
+        Employee employee2 = new Employee("002","Nguyen Thi Hai","21","Quang Nam");
+        Employee employee3 = new Employee("003","Nguyen Van Ba","23","Nghe An");
+        Employee employee4 = new Employee("004","Nguyen Thi Bon","24","Quang Ngai");
+        Employee employee5 = new Employee("005","Nguyen Van Nam","22","Ha Tinh");
+        Employee employee6 = new Employee("006","Nguyen Thi Sau","23","Quang Tri");
+        Employee employee7 = new Employee("007","Nguyen Van Bay","22","Quang Binh");
+        Employee employee8 = new Employee("008","Nguyen Thi Tam","25","Quang Nam");
+        Employee employee9 = new Employee("009","Nguyen Van Chin","21","Da Nang");
+        Employee employee10 = new Employee("010","Nguyen Thi Muoi","23","Hue");
 
         employeeList.add(employee1);
         employeeList.add(employee2);
@@ -35,7 +35,7 @@ public class InfoEmployee {
         employeeList.add(employee9);
         employeeList.add(employee10);
 
-        String line = null;
+        String line;
         for (Employee employee : employeeList){
             line = employee.getNameEmployee()+COMMA+employee.getAgeEmployee()+COMMA+employee.getAddressEmployee();
             ReadAndWrite.writeFile(EMPLOYEE,line);

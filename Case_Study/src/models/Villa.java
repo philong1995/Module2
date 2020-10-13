@@ -4,19 +4,19 @@ public class Villa extends Service {
 //    standard : Tiêu chuẩn.
     private String standardVilla;
     private String otherFacilities;
-    private double areaPool;
-    private int amountFloor;
+    private String areaPool;
+    private String amountFloor;
 
     public Villa(){}
 
-    public Villa(String standardVilla, String otherFacilities, double areaPool, int amountFloor) {
+    public Villa(String standardVilla, String otherFacilities, String areaPool, String amountFloor) {
         this.standardVilla = standardVilla;
         this.otherFacilities = otherFacilities;
         this.areaPool = areaPool;
         this.amountFloor = amountFloor;
     }
 
-    public Villa(String idService, String nameService, int areaService, int payService, int amountPeople, String typeService, String standardVilla, String otherFacilities, double areaPool, int amountFloor) {
+    public Villa(String idService, String nameService, int areaService, int payService, int amountPeople, String typeService, String standardVilla, String otherFacilities, String areaPool, String amountFloor) {
         super(idService, nameService, areaService, payService, amountPeople, typeService);
         this.standardVilla = standardVilla;
         this.otherFacilities = otherFacilities;
@@ -40,19 +40,19 @@ public class Villa extends Service {
         this.otherFacilities = otherFacilities;
     }
 
-    public double getAreaPool() {
+    public String getAreaPool() {
         return areaPool;
     }
 
-    public void setAreaPool(double areaPool) {
+    public void setAreaPool(String areaPool) {
         this.areaPool = areaPool;
     }
 
-    public int getAmountFloor() {
+    public String getAmountFloor() {
         return amountFloor;
     }
 
-    public void setAmountFloor(int amountFloor) {
+    public void setAmountFloor(String amountFloor) {
         this.amountFloor = amountFloor;
     }
 
